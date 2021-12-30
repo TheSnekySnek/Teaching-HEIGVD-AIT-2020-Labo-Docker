@@ -1,0 +1,204 @@
+[s6-init] making user provided files available at /var/run/s6/etc...exited 0.
+[s6-init] ensuring user provided files have correct perms...exited 0.
+[fix-attrs.d] applying ownership & permissions fixes...
+[fix-attrs.d] done.
+[cont-init.d] executing container initialization scripts...
+[cont-init.d] done.
+[services.d] starting services
+/opt/bin/serf agent --join ha --tag role=backend
+[services.d] done.
+==> Starting Serf agent...
+==> Starting Serf agent RPC...
+==> Serf agent running!
+         Node name: '91f6c9d294ab'
+         Bind addr: '0.0.0.0:7946'
+                       RPC addr: '127.0.0.1:7373'
+                      Encrypted: false
+                       Snapshot: false
+                        Profile: lan
+    Message Compression Enabled: true
+==> Joining cluster...(replay: false)
+Application started
+    Join completed. Synced with 1 initial agents
+
+==> Log data will now stream in as it occurs:
+
+    2021/12/27 16:02:08 [INFO] agent: Serf agent starting
+    2021/12/27 16:02:08 [INFO] serf: EventMemberJoin: 91f6c9d294ab 192.168.42.22
+    2021/12/27 16:02:08 [INFO] agent: joining: [ha] replay: false
+    2021/12/27 16:02:09 [INFO] serf: EventMemberJoin: dcab6bab5c22 192.168.42.42
+    2021/12/27 16:02:09 [INFO] agent: joined: 1 nodes
+    2021/12/27 16:02:09 [INFO] serf: EventMemberJoin: 6babc93012cd 192.168.42.11
+[0mHEAD / [32m200 [0m4.205 ms - 129[0m
+    2021/12/27 16:02:10 [INFO] agent: Received event: member-join
+[0mHEAD / [32m200 [0m1.001 ms - 129[0m
+[0mHEAD / [32m200 [0m0.646 ms - 129[0m
+[0mHEAD / [32m200 [0m0.674 ms - 129[0m
+[0mHEAD / [32m200 [0m0.768 ms - 129[0m
+[0mHEAD / [32m200 [0m0.780 ms - 129[0m
+[0mHEAD / [32m200 [0m0.555 ms - 129[0m
+[0mHEAD / [32m200 [0m0.727 ms - 129[0m
+[0mHEAD / [32m200 [0m0.821 ms - 129[0m
+[0mHEAD / [32m200 [0m0.806 ms - 129[0m
+[0mHEAD / [32m200 [0m0.640 ms - 129[0m
+[0mHEAD / [32m200 [0m0.723 ms - 129[0m
+[0mHEAD / [32m200 [0m0.781 ms - 129[0m
+[0mHEAD / [32m200 [0m0.762 ms - 129[0m
+[0mHEAD / [32m200 [0m1.198 ms - 129[0m
+[0mHEAD / [32m200 [0m0.713 ms - 129[0m
+[0mHEAD / [32m200 [0m0.721 ms - 129[0m
+[0mHEAD / [32m200 [0m0.614 ms - 129[0m
+[0mHEAD / [32m200 [0m0.552 ms - 129[0m
+[0mHEAD / [32m200 [0m0.651 ms - 129[0m
+[0mHEAD / [32m200 [0m0.646 ms - 129[0m
+[0mHEAD / [32m200 [0m0.754 ms - 129[0m
+[0mHEAD / [32m200 [0m0.710 ms - 129[0m
+[0mHEAD / [32m200 [0m0.589 ms - 129[0m
+[0mHEAD / [32m200 [0m0.594 ms - 129[0m
+[0mHEAD / [32m200 [0m0.611 ms - 129[0m
+[0mHEAD / [32m200 [0m0.490 ms - 129[0m
+[0mHEAD / [32m200 [0m0.599 ms - 129[0m
+[0mHEAD / [32m200 [0m0.605 ms - 129[0m
+[0mHEAD / [32m200 [0m1.121 ms - 129[0m
+[0mHEAD / [32m200 [0m0.611 ms - 129[0m
+[0mHEAD / [32m200 [0m0.587 ms - 129[0m
+[0mHEAD / [32m200 [0m0.556 ms - 129[0m
+[0mHEAD / [32m200 [0m0.476 ms - 129[0m
+[0mHEAD / [32m200 [0m0.603 ms - 129[0m
+[0mHEAD / [32m200 [0m0.496 ms - 129[0m
+[0mHEAD / [32m200 [0m1.047 ms - 129[0m
+[0mHEAD / [32m200 [0m0.611 ms - 129[0m
+[0mHEAD / [32m200 [0m0.496 ms - 129[0m
+[0mHEAD / [32m200 [0m0.494 ms - 129[0m
+[0mHEAD / [32m200 [0m0.513 ms - 129[0m
+[0mHEAD / [32m200 [0m0.573 ms - 129[0m
+[0mHEAD / [32m200 [0m0.585 ms - 129[0m
+[0mHEAD / [32m200 [0m0.515 ms - 129[0m
+[0mHEAD / [32m200 [0m0.873 ms - 129[0m
+[0mHEAD / [32m200 [0m0.514 ms - 129[0m
+[0mHEAD / [32m200 [0m0.535 ms - 129[0m
+[0mHEAD / [32m200 [0m0.489 ms - 129[0m
+[0mHEAD / [32m200 [0m0.463 ms - 129[0m
+[0mHEAD / [32m200 [0m0.553 ms - 129[0m
+[0mHEAD / [32m200 [0m0.473 ms - 129[0m
+[0mHEAD / [32m200 [0m0.501 ms - 129[0m
+[0mHEAD / [32m200 [0m0.515 ms - 129[0m
+[0mHEAD / [32m200 [0m0.478 ms - 129[0m
+[0mHEAD / [32m200 [0m0.518 ms - 129[0m
+[0mHEAD / [32m200 [0m0.494 ms - 129[0m
+[0mHEAD / [32m200 [0m0.541 ms - 129[0m
+[0mHEAD / [32m200 [0m0.627 ms - 129[0m
+[0mHEAD / [32m200 [0m0.988 ms - 129[0m
+[0mHEAD / [32m200 [0m0.523 ms - 129[0m
+[0mHEAD / [32m200 [0m0.533 ms - 129[0m
+[0mHEAD / [32m200 [0m0.470 ms - 129[0m
+[0mHEAD / [32m200 [0m0.701 ms - 129[0m
+[0mHEAD / [32m200 [0m0.453 ms - 129[0m
+[0mHEAD / [32m200 [0m0.549 ms - 129[0m
+[0mHEAD / [32m200 [0m0.581 ms - 129[0m
+[0mHEAD / [32m200 [0m1.226 ms - 129[0m
+[0mHEAD / [32m200 [0m0.471 ms - 129[0m
+[0mHEAD / [32m200 [0m0.514 ms - 129[0m
+[0mHEAD / [32m200 [0m0.518 ms - 129[0m
+[0mHEAD / [32m200 [0m0.544 ms - 129[0m
+[0mHEAD / [32m200 [0m0.463 ms - 129[0m
+[0mHEAD / [32m200 [0m0.548 ms - 129[0m
+[0mHEAD / [32m200 [0m0.502 ms - 129[0m
+[0mHEAD / [32m200 [0m0.481 ms - 129[0m
+[0mHEAD / [32m200 [0m0.525 ms - 129[0m
+[0mHEAD / [32m200 [0m0.558 ms - 129[0m
+[0mHEAD / [32m200 [0m0.484 ms - 129[0m
+[0mHEAD / [32m200 [0m0.573 ms - 129[0m
+[0mHEAD / [32m200 [0m0.518 ms - 129[0m
+[0mHEAD / [32m200 [0m0.492 ms - 129[0m
+[0mHEAD / [32m200 [0m0.489 ms - 129[0m
+[0mHEAD / [32m200 [0m0.481 ms - 129[0m
+[0mHEAD / [32m200 [0m0.536 ms - 129[0m
+[0mHEAD / [32m200 [0m0.500 ms - 129[0m
+[0mHEAD / [32m200 [0m0.850 ms - 129[0m
+[0mHEAD / [32m200 [0m0.794 ms - 129[0m
+[0mHEAD / [32m200 [0m0.480 ms - 129[0m
+[0mHEAD / [32m200 [0m0.459 ms - 129[0m
+[0mHEAD / [32m200 [0m0.618 ms - 129[0m
+[0mHEAD / [32m200 [0m0.451 ms - 129[0m
+[0mHEAD / [32m200 [0m0.586 ms - 129[0m
+[0mHEAD / [32m200 [0m0.559 ms - 129[0m
+[0mHEAD / [32m200 [0m0.523 ms - 129[0m
+[0mHEAD / [32m200 [0m0.505 ms - 129[0m
+[0mHEAD / [32m200 [0m0.492 ms - 129[0m
+[0mHEAD / [32m200 [0m0.529 ms - 129[0m
+[0mHEAD / [32m200 [0m0.550 ms - 129[0m
+[0mHEAD / [32m200 [0m0.527 ms - 129[0m
+[0mHEAD / [32m200 [0m0.562 ms - 129[0m
+[0mHEAD / [32m200 [0m0.475 ms - 129[0m
+[0mHEAD / [32m200 [0m0.479 ms - 129[0m
+[0mHEAD / [32m200 [0m0.686 ms - 129[0m
+[0mHEAD / [32m200 [0m1.115 ms - 129[0m
+[0mHEAD / [32m200 [0m0.535 ms - 129[0m
+[0mHEAD / [32m200 [0m0.534 ms - 129[0m
+[0mHEAD / [32m200 [0m0.492 ms - 129[0m
+[0mHEAD / [32m200 [0m0.482 ms - 129[0m
+[0mHEAD / [32m200 [0m0.550 ms - 129[0m
+[0mHEAD / [32m200 [0m0.486 ms - 129[0m
+[0mHEAD / [32m200 [0m0.580 ms - 129[0m
+[0mHEAD / [32m200 [0m0.534 ms - 129[0m
+[0mHEAD / [32m200 [0m0.698 ms - 129[0m
+[0mHEAD / [32m200 [0m0.575 ms - 129[0m
+[0mHEAD / [32m200 [0m0.745 ms - 129[0m
+[0mHEAD / [32m200 [0m0.675 ms - 129[0m
+[0mHEAD / [32m200 [0m0.457 ms - 129[0m
+[0mHEAD / [32m200 [0m0.687 ms - 129[0m
+[0mHEAD / [32m200 [0m0.509 ms - 129[0m
+[0mHEAD / [32m200 [0m1.348 ms - 129[0m
+[0mHEAD / [32m200 [0m0.535 ms - 129[0m
+[0mHEAD / [32m200 [0m0.556 ms - 129[0m
+[0mHEAD / [32m200 [0m0.494 ms - 129[0m
+[0mHEAD / [32m200 [0m0.554 ms - 129[0m
+[0mHEAD / [32m200 [0m0.566 ms - 129[0m
+[0mHEAD / [32m200 [0m0.572 ms - 129[0m
+[0mHEAD / [32m200 [0m0.489 ms - 129[0m
+[0mHEAD / [32m200 [0m0.501 ms - 129[0m
+[0mHEAD / [32m200 [0m0.583 ms - 129[0m
+[0mHEAD / [32m200 [0m0.527 ms - 129[0m
+[0mHEAD / [32m200 [0m0.562 ms - 129[0m
+[0mHEAD / [32m200 [0m0.522 ms - 129[0m
+[0mHEAD / [32m200 [0m0.478 ms - 129[0m
+[0mHEAD / [32m200 [0m0.554 ms - 129[0m
+[0mHEAD / [32m200 [0m0.529 ms - 129[0m
+[0mHEAD / [32m200 [0m1.095 ms - 129[0m
+[0mHEAD / [32m200 [0m0.572 ms - 129[0m
+[0mHEAD / [32m200 [0m0.597 ms - 129[0m
+[0mHEAD / [32m200 [0m0.649 ms - 129[0m
+[0mHEAD / [32m200 [0m0.538 ms - 129[0m
+[0mHEAD / [32m200 [0m0.505 ms - 129[0m
+[0mHEAD / [32m200 [0m0.496 ms - 129[0m
+[0mHEAD / [32m200 [0m0.989 ms - 129[0m
+[0mHEAD / [32m200 [0m0.516 ms - 129[0m
+[0mHEAD / [32m200 [0m0.545 ms - 129[0m
+[0mHEAD / [32m200 [0m0.593 ms - 129[0m
+[0mHEAD / [32m200 [0m0.552 ms - 129[0m
+[0mHEAD / [32m200 [0m0.518 ms - 129[0m
+[0mHEAD / [32m200 [0m0.549 ms - 129[0m
+[0mHEAD / [32m200 [0m0.534 ms - 129[0m
+[0mHEAD / [32m200 [0m0.520 ms - 129[0m
+[0mHEAD / [32m200 [0m0.612 ms - 129[0m
+[0mHEAD / [32m200 [0m0.572 ms - 129[0m
+[0mHEAD / [32m200 [0m0.482 ms - 129[0m
+[0mHEAD / [32m200 [0m0.502 ms - 129[0m
+[0mHEAD / [32m200 [0m0.534 ms - 129[0m
+[0mHEAD / [32m200 [0m0.527 ms - 129[0m
+[0mHEAD / [32m200 [0m0.601 ms - 129[0m
+[0mHEAD / [32m200 [0m0.518 ms - 129[0m
+[0mHEAD / [32m200 [0m0.545 ms - 129[0m
+[0mHEAD / [32m200 [0m0.506 ms - 129[0m
+[0mHEAD / [32m200 [0m0.595 ms - 129[0m
+[0mHEAD / [32m200 [0m0.497 ms - 129[0m
+[0mHEAD / [32m200 [0m0.501 ms - 129[0m
+[0mHEAD / [32m200 [0m0.488 ms - 129[0m
+[0mHEAD / [32m200 [0m1.248 ms - 129[0m
+[0mHEAD / [32m200 [0m0.612 ms - 129[0m
+[0mHEAD / [32m200 [0m0.562 ms - 129[0m
+[0mHEAD / [32m200 [0m0.502 ms - 129[0m
+[0mHEAD / [32m200 [0m0.578 ms - 129[0m
+[0mHEAD / [32m200 [0m0.536 ms - 129[0m
+[0mHEAD / [32m200 [0m0.533 ms - 129[0m

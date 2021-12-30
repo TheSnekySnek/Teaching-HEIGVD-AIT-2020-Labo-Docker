@@ -1,0 +1,32 @@
+[s6-init] making user provided files available at /var/run/s6/etc...exited 0.
+[s6-init] ensuring user provided files have correct perms...exited 0.
+[fix-attrs.d] applying ownership & permissions fixes...
+[fix-attrs.d] done.
+[cont-init.d] executing container initialization scripts...
+[cont-init.d] done.
+[services.d] starting services
+/opt/bin/serf agent --join ha --replay --event-handler member-join=/serf-handlers/member-join.sh --event-handler member-leave,member-failed=/serf-handlers/member-leave.sh --tag role=balancer
+[services.d] done.
+==> Starting Serf agent...
+==> Starting Serf agent RPC...
+==> Serf agent running!
+         Node name: 'dcab6bab5c22'
+         Bind addr: '0.0.0.0:7946'
+                       RPC addr: '127.0.0.1:7373'
+                      Encrypted: false
+                       Snapshot: false
+                        Profile: lan
+    Message Compression Enabled: true
+==> Joining cluster...(replay: true)
+    Join completed. Synced with 1 initial agents
+
+==> Log data will now stream in as it occurs:
+
+    2021/12/27 16:02:09 [INFO] agent: Serf agent starting
+    2021/12/27 16:02:09 [INFO] serf: EventMemberJoin: dcab6bab5c22 192.168.42.42
+    2021/12/27 16:02:09 [INFO] agent: joining: [ha] replay: true
+    2021/12/27 16:02:09 [INFO] agent: joined: 1 nodes
+    2021/12/27 16:02:09 [INFO] serf: EventMemberJoin: 6babc93012cd 192.168.42.11
+    2021/12/27 16:02:09 [INFO] serf: EventMemberJoin: 91f6c9d294ab 192.168.42.22
+    2021/12/27 16:02:10 [INFO] agent: Received event: member-join
+    2021/12/27 16:02:10 [ERR] agent: Error invoking script '/serf-handlers/member-join.sh': exit status 127

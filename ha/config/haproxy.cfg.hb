@@ -109,7 +109,9 @@ backend nodes
     # http://cbonte.github.io/haproxy-dconv/2.2/configuration.html#4-server
 
     # HANDLEBARS START
-
+    {{#each addresses}}
+    server {{ host }} {{ ip }}:3000 check
+    {{/each}}
     # HANDLEBARS STOP
 
 # Other links you will need later for this lab

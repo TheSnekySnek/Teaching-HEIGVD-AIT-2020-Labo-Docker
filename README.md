@@ -122,20 +122,81 @@ give in your report the reference of the question you are answering.
    solution for a production environment? What are the main problems
    when deploying it in a production environment?
 
+   No, we cannot use the current solution for a production environment because we don't have any monitoring of the status of the nodes to reboot or spin more if one is offline. We also have no automatic way to scale the infrastructure with demand.
+
 2. <a name="M2"></a>**[M2]** Describe what you need to do to add new
    `webapp` container to the infrastructure. Give the exact steps of
    what you have to do without modifiying the way the things are
    done. Hint: You probably have to modify some configuration and
    script files in a Docker image.
 
+   First we need to add the information about the new node to the .env file like so:
+
+    ```
+    WEBAPP_3_NAME=s3
+    WEBAPP_3_IP=192.168.42.33
+    ```
+   Then we need to add the new wepapp to the docker-compose.yml file:
+    ```
+     webapp3:
+      container_name: ${WEBAPP_3_NAME}
+      build:
+        context: ./webapp
+        dockerfile: Dockerfile
+      networks:
+        heig:
+          ipv4_address: ${WEBAPP_3_IP}
+      ports:
+        - "4002:3000"
+      environment:
+          - TAG=${WEBAPP_3_NAME}
+          - SERVER_IP=${WEBAPP_3_IP}
+
+    haproxy:
+       container_name: ha
+       build:
+         context: ./ha
+         dockerfile: Dockerfile
+       ports:
+         - 80:80
+         - 1936:1936
+         - 9999:9999
+       expose:
+         - 80
+         - 1936
+         - 9999
+       networks:
+         heig:
+           ipv4_address: ${HA_PROXY_IP}
+       environment:
+            - WEBAPP_1_IP=${WEBAPP_1_IP}
+            - WEBAPP_2_IP=${WEBAPP_2_IP}
+            - WEBAPP_3_IP=${WEBAPP_3_IP}
+    ```
+
+    We also need to change the config in haproxy.cfg to add the new backend node:
+
+    ```
+    server s1 ${WEBAPP_1_IP}:3000 check
+    server s2 ${WEBAPP_2_IP}:3000 check
+    server s3 ${WEBAPP_3_IP}:3000 check
+    ```
+
+
+
 3. <a name="M3"></a>**[M3]** Based on your previous answers, you have
    detected some issues in the current solution. Now propose a better
    approach at a high level.
+
+   We need to be able to automate the process of adding and removing nodes to haproxy.
 
 4. <a name="M4"></a>**[M4]** You probably noticed that the list of web
     application nodes is hardcoded in the load balancer
     configuration. How can we manage the web app nodes in a more dynamic
     fashion?
+
+  We could use a monitor the load on each nodes and edit the configuration of haproxy to start or remove nodes as needed. For example if we see that the current nodes are overloaded we could add a new one to the pool.
+    
 
 5. <a name="M5"></a>**[M5]** In the physical or virtual machines of a
    typical infrastructure we tend to have not only one main process
@@ -156,6 +217,10 @@ give in your report the reference of the question you are answering.
    the goal? If yes, how to proceed to run for example a log
    forwarding process?
 
+  To run multiple processes in a container we need to use a custom script as the process started by docker. This will allow us to run multiple processes from it like the web server and the log forwarding service.
+
+  
+
 6. <a name="M6"></a>**[M6]** In our current solution, although the
    load balancer configuration is changing dynamically, it doesn't
    follow dynamically the configuration of our distributed system when
@@ -168,6 +233,9 @@ give in your report the reference of the question you are answering.
    What happens if we add more web server nodes? Do you think it is
    really dynamic? It's far away from being a dynamic
    configuration. Can you propose a solution to solve this?
+
+  It's not dynamic since we have to edit the script and restart the haproxy container when we add a new node to the pool.
+
 
 #### Install the tools
 
@@ -1248,6 +1316,10 @@ exit
   RUN command 1 && command 2 && command 3
   ```
 
+  If we use multiple run commands, docker will only rebuild the image with the new command and the ones that follow.
+
+  If we put each one in a single line, docker would have rebuilt the whole image.
+
   There are also some articles about techniques to reduce the image
   size. Try to find them. They are talking about `squashing` or
   `flattening` images.
@@ -1256,6 +1328,8 @@ exit
    to reuse as much as possible what we have done. Your proposition
    should also try to avoid as much as possible repetitions between
    your images.
+
+
 
 3. Provide the `/tmp/haproxy.cfg` file generated in the `ha` container
    after each step.  Place the output into the `logs` folder like you
@@ -1268,6 +1342,8 @@ exit
    
 4. Based on the three output files you have collected, what can you
    say about the way we generate it? What is the problem if any?
+
+   The log file is overrided when a new node joins. This make it impossible to get a history of who joined the cluster.
 
 
 ### <a name="task-5"></a>Task 5: Generate a new load balancer configuration when membership changes
@@ -1497,9 +1573,13 @@ tasks**)
 2. Provide the list of files from the `/nodes` folder inside the `ha` container.
    One file expected with the command output.
 
+   97aa8134a7bb  f14ccc2f5978
+
 3. Provide the configuration file after you stopped one container and
    the list of nodes present in the `/nodes` folder. One file expected
    with the command output. Two files are expected.
+
+   97aa8134a7bb
    
     In addition, provide a log file containing the output of the 
    `docker ps` console. One file expected.
