@@ -1,10 +1,23 @@
 
+# Lab 04 - Docker
+## Authors 
+Diego Villagrasa
+
+Michael Ruckstuhl
+
+Fabio Da Silva Marques
+
+# Table of Contents
+1. [Introdcution](#introduction)
+2. [Tasks](#tasks)
+3. [Difficulties](#difficulties)
+4. [Conclusion](#conclusion)
 
 # Introdcution
 
 The goal of this lab is to setup, configure and test a dynamic load balancing system that is able to accept and remove nodes from it's pool without having to moddify the configuration manually and restart the server.
 
-To achieve this, we'll integrate Serf to our nodes so they can autopaticcaly join and leave the cluster.
+To achieve this, we'll integrate Serf to our nodes so they can automatically join and leave the cluster and automatically update the HAProxy configuration to reflect the active nodes.
 
 # Tasks
 
@@ -121,7 +134,7 @@ To run multiple processes in a container we need to use a custom script as the p
     really dynamic? It's far away from being a dynamic
     configuration. Can you propose a solution to solve this?
 
-It's not dynamic since we have to edit the script and restart the haproxy container when we add a new node to the pool.
+It's not dynamic since we have to manually edit the script and restart the haproxy container when we add a new node to the pool.
 
 ### Deliverables
     1. Take a screenshot of the stats page of HAProxy at
@@ -340,4 +353,4 @@ The major dificulties we had was to log everything for the deliverables which wa
 
 Some of us had used Serf before to manage a cluster of Docker containers so we already knew how to use it for this purpose before.
 
-But we were able to understand how to configure HaProxy in particular to support dynamic load balancing.
+But we were able to understand how to configure HaProxy in particular to support dynamic load balancing and how to use a process supervisor to have multiple processes running in a single docker container which is really usefull to know since we are using Docker more and more in our formation.
